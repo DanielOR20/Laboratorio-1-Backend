@@ -1,0 +1,894 @@
+{
+  "historicoTipoCambio": [
+    {
+      "id": "1",
+      "fecha": "2026-10-14T08:00:00.000Z",
+      "tipoCambioCompra": 512.1,
+      "tipoCambioVenta": 514.8,
+      "variacionDetectada": 0,
+      "fuente": "BCCR"
+    },
+    {
+      "id": "2",
+      "fecha": "2026-10-15T08:00:00.000Z",
+      "tipoCambioCompra": 512.4,
+      "tipoCambioVenta": 515.1,
+      "variacionDetectada": 0.06,
+      "fuente": "BCCR"
+    },
+    {
+      "id": "3",
+      "fecha": "2026-10-16T08:00:00.000Z",
+      "tipoCambioCompra": 512,
+      "tipoCambioVenta": 514.9,
+      "variacionDetectada": -0.04,
+      "fuente": "BCCR"
+    },
+    {
+      "id": "4",
+      "fecha": "2026-10-17T08:00:00.000Z",
+      "tipoCambioCompra": 512.5,
+      "tipoCambioVenta": 515.3,
+      "variacionDetectada": 0.08,
+      "fuente": "BCCR"
+    },
+    {
+      "id": "5",
+      "fecha": "2026-10-18T08:00:00.000Z",
+      "tipoCambioCompra": 512.6,
+      "tipoCambioVenta": 515.5,
+      "variacionDetectada": 0.04,
+      "fuente": "BCCR"
+    },
+    {
+      "fecha": "2026-10-19T11:59:26.571-04:00",
+      "tipoCambioCompra": 448.31,
+      "tipoCambioVenta": 520,
+      "variacionDetectada": -12.031,
+      "fuente": "BCCR / Hacienda",
+      "id": "Ip_Ub1e101c"
+    },
+    {
+      "fecha": "2026-10-19T12:19:33.833-04:00",
+      "tipoCambioCompra": 448.31,
+      "tipoCambioVenta": 520,
+      "variacionDetectada": -12.7923,
+      "fuente": "BCCR / Hacienda",
+      "id": "tg6k-0KkGwI"
+    },
+    {
+      "fecha": "2026-10-19T12:40:11.605-04:00",
+      "tipoCambioCompra": 448.31,
+      "tipoCambioVenta": 520,
+      "variacionDetectada": -12.7923,
+      "fuente": "BCCR / Hacienda",
+      "id": "G2UZZWGRfhU"
+    },
+    {
+      "fecha": "2026-10-19T13:47:01.298-04:00",
+      "tipoCambioCompra": 123,
+      "tipoCambioVenta": 453.48,
+      "variacionDetectada": -12.7923,
+      "fuente": "BCCR / Hacienda",
+      "id": "HAqViNOWDfk"
+    },
+    {
+      "fecha": "2026-10-19T13:47:33.600-04:00",
+      "tipoCambioCompra": 123,
+      "tipoCambioVenta": 700.48,
+      "variacionDetectada": 54.4677,
+      "fuente": "BCCR / Hacienda",
+      "id": "iJILKeF1Xds"
+    },
+    {
+      "fecha": "2026-10-19T13:48:18.866-04:00",
+      "tipoCambioCompra": 123,
+      "tipoCambioVenta": 3174.48,
+      "variacionDetectada": 353.1864,
+      "fuente": "BCCR / Hacienda",
+      "id": "tLtD7b4v0Cg"
+    }
+  ],
+  "productos": [
+    {
+      "id": "PROD-001",
+      "sku": "SRV-DELL-R750",
+      "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+      "categoria": "Infraestructura",
+      "proveedor": "Dell Enterprise",
+      "precioCostoUSD": 3200,
+      "margenGanancia": 0.22,
+      "precioVentaCRC": 12393170,
+      "stock": 4,
+      "ajusteAutomatico": true,
+      "protegidoPorContrato": false,
+      "ultimaActualizacion": "2026-10-19T13:48:18.713-04:00"
+    },
+    {
+      "id": "PROD-002",
+      "sku": "NET-CISCO-C9200",
+      "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+      "categoria": "Redes",
+      "proveedor": "Cisco Systems",
+      "precioCostoUSD": 1450,
+      "margenGanancia": 0.25,
+      "precioVentaCRC": 5753745,
+      "stock": 12,
+      "ajusteAutomatico": true,
+      "protegidoPorContrato": false,
+      "ultimaActualizacion": "2026-10-19T13:48:18.718-04:00"
+    },
+    {
+      "id": "PROD-003",
+      "sku": "LAP-LEN-T14",
+      "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+      "categoria": "Cómputo",
+      "proveedor": "Lenovo Corp",
+      "precioCostoUSD": 980,
+      "margenGanancia": 0.28,
+      "precioVentaCRC": 3982068,
+      "stock": 25,
+      "ajusteAutomatico": true,
+      "protegidoPorContrato": false,
+      "ultimaActualizacion": "2026-10-19T13:48:18.721-04:00"
+    },
+    {
+      "id": "PROD-004",
+      "sku": "MON-ASUS-VG27",
+      "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+      "categoria": "Periféricos",
+      "proveedor": "ASUS Latam",
+      "precioCostoUSD": 215,
+      "margenGanancia": 0.35,
+      "precioVentaCRC": 921393,
+      "stock": 40,
+      "ajusteAutomatico": true,
+      "protegidoPorContrato": false,
+      "ultimaActualizacion": "2026-10-19T13:48:18.724-04:00"
+    },
+    {
+      "id": "PROD-005",
+      "sku": "LIC-MS-M365BP",
+      "nombre": "Licencia Anual Microsoft 365 Business Premium",
+      "categoria": "Software",
+      "proveedor": "Microsoft Cloud",
+      "precioCostoUSD": 240,
+      "margenGanancia": 0.12,
+      "precioVentaCRC": 138567,
+      "stock": 150,
+      "ajusteAutomatico": false,
+      "protegidoPorContrato": true,
+      "motivoExclusion": "Tarifa fijada por contrato corporativo anual",
+      "ultimaActualizacion": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "PROD-006",
+      "sku": "CAB-PAND-CAT6A",
+      "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+      "categoria": "Cableado",
+      "proveedor": "Panduit",
+      "precioCostoUSD": 185,
+      "margenGanancia": 0.3,
+      "precioVentaCRC": 763462,
+      "stock": 18,
+      "ajusteAutomatico": true,
+      "protegidoPorContrato": false,
+      "ultimaActualizacion": "2026-10-19T13:48:18.727-04:00"
+    },
+    {
+      "id": "PROD-007",
+      "sku": "UPS-APC-SMT1500",
+      "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+      "categoria": "Energía",
+      "proveedor": "Schneider Electric",
+      "precioCostoUSD": 580,
+      "margenGanancia": 0.25,
+      "precioVentaCRC": 2301498,
+      "stock": 7,
+      "ajusteAutomatico": true,
+      "protegidoPorContrato": false,
+      "ultimaActualizacion": "2026-10-19T13:48:18.730-04:00"
+    },
+    {
+      "id": "PROD-008",
+      "sku": "SRV-REP-MEM64",
+      "nombre": "Módulo Memoria RAM Servidor DDR4 64GB ECC",
+      "categoria": "Componentes",
+      "proveedor": "Kingston Technology",
+      "precioCostoUSD": 195,
+      "margenGanancia": 0.2,
+      "precioVentaCRC": 120627,
+      "stock": 0,
+      "ajusteAutomatico": false,
+      "protegidoPorContrato": false,
+      "motivoExclusion": "Sin stock disponible, congelado para reorden",
+      "ultimaActualizacion": "2026-10-10T00:00:00.000Z"
+    }
+  ],
+  "configuracion": {
+    "umbralVariacionAlerta": 1,
+    "umbralVariacionAjusteCritico": 1.5,
+    "monedaBase": "USD",
+    "monedaDestino": "CRC",
+    "frecuenciaMonitoreoHoras": 24,
+    "notificarViaEmail": true,
+    "emailResponsable": "compras@importadoracr.com"
+  },
+  "auditoriaAjustes": [
+    {
+      "fecha": "2026-10-19T11:49:28.441-04:00",
+      "tipoCambioDetectado": 453.48,
+      "tipoCambioAnterior": 515.5,
+      "variacionPorcentual": -12.031,
+      "tendencia": "BAJISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 2012512,
+          "nuevoPrecioVentaCRC": 1770386,
+          "diferenciaCRC": -242126,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 934344,
+          "nuevoPrecioVentaCRC": 821933,
+          "diferenciaCRC": -112411,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 646643,
+          "nuevoPrecioVentaCRC": 568845,
+          "diferenciaCRC": -77798,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 149624,
+          "nuevoPrecioVentaCRC": 131623,
+          "diferenciaCRC": -18001,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 123978,
+          "nuevoPrecioVentaCRC": 109062,
+          "diferenciaCRC": -14916,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 373738,
+          "nuevoPrecioVentaCRC": 328773,
+          "diferenciaCRC": -44965,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "# Dictamen Ejecutivo – Ajuste Automático de Precios por Variación Cambiaria\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de **-12.031% (tendencia BAJISTA, nivel CRÍTICO)** representa una apreciación del colón frente al dólar que reduce el costo de reposición de inventario importado y, por ende, **comprime el margen bruto si los precios de venta no se ajustan**. El recálculo aplicado a 6 de 8 productos generó una **reducción agregada de ₡509,217 CRC** (≈ 11.9% ponderado sobre los precios anteriores), reflejando una transmisión casi proporcional de la variación. En términos de margen, el ajuste es **defensivo y correcto**: mantiene la competitividad frente a importadores que ya trasladaron la baja, pero **riesgo de sobre-reacción** si el tipo de cambio rebota (el nivel CRÍTICO exige monitoreo diario). Los productos de mayor valor (Servidor Dell, Switch Cisco) concentran el 69.6% del ajuste absoluto, lo que amplifica el impacto en el ticket promedio y en la utilidad por transacción.\n\n**2. Validación de reglas de negocio.** Las exclusiones son **procedentes y consistentes**: PROD-005 (licencia Microsoft 365) y PROD-008 (RAM servidor) fueron omitidos por \"Ajuste desactivado\", lo cual es correcto si corresponden a **contratos con precio fijo** o **stock comprometido** —no deben repreciarse unilateralmente sin cláusula de revisión. Sin embargo, se observa una **inconsistencia de trazabilidad**: el detalle reporta 6 recalculados pero solo se listan 6 IDs (PROD-001,002,003,004,006,007), sin explicitar el criterio de \"Apto para recálculo\" ni la regla que excluyó a los dos restantes (¿sin stock? ¿contrato?). Se recomienda **documentar el flag de elegibilidad** (stock>0, sin contrato vigente, margen mínimo) para auditoría futura. No se evidencia aplicación de **piso de margen** ni **redondeo comercial**, lo que conviene formalizar.\n\n**3. Recomendación operativa.** Para **Compras**: aprovechar la ventana de tipo de cambio bajo para **adelantar reposiciones** de los SKU repreciados (especialmente Infraestructura y Redes) y renegociar contratos marco antes de un posible rebote; validar que el -12% se traslade íntegro a costo landed. Para **Ventas**: comunicar la baja como **ventaja competitiva** en licitaciones abiertas, pero **proteger margen** revisando descuentos adicionales sobre los 6 SKU ajustados y mantener congelados los 2 excluidos hasta revisión contractual. **Control interno**: implementar alerta de reversión si la variación supera ±5% en sentido contrario en 72h, y exigir aprobación gerencial para ajustes con nivel CRÍTICO antes de su publicación en el catálogo.",
+      "id": "6ft1x9UseOQ"
+    },
+    {
+      "fecha": "2026-10-19T12:19:33.696-04:00",
+      "tipoCambioDetectado": 453.48,
+      "tipoCambioAnterior": 520,
+      "variacionPorcentual": -12.7923,
+      "tendencia": "BAJISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 1770386,
+          "nuevoPrecioVentaCRC": 1770386,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 821933,
+          "nuevoPrecioVentaCRC": 821933,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 568845,
+          "nuevoPrecioVentaCRC": 568845,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 131623,
+          "nuevoPrecioVentaCRC": 131623,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 109062,
+          "nuevoPrecioVentaCRC": 109062,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 328773,
+          "nuevoPrecioVentaCRC": 328773,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "**DICTAMEN EJECUTIVO — Auditoría de Ajuste Automático de Precios**\n\n**1. Diagnóstico del impacto cambiario.** La variación registrada de −12,7923% (₡520 → ₡453,48 por USD) supera con creces el umbral de ajuste crítico tolerado del 1,5% y el umbral de alerta del 1,0% definidos en la política corporativa (moneda base USD / destino CRC, monitoreo cada 24 h). No obstante, el hecho material es que los seis productos \"recalculados\" presentan diferenciaCRC = 0: el sistema ejecutó el recálculo sin trasladar el efecto cambiario al precio de venta. Al mantenerse los precios en colones con un tipo de cambio 12,79% inferior, el margen de importación se comprime en esa misma proporción sobre el costo en USD, destruyendo utilidad bruta en las seis líneas (Servidor Dell, Switch Cisco, ThinkPad, Monitor ASUS, Cable Panduit y UPS APC) y generando riesgo de venta bajo costo. Adicionalmente, el nivel \"CRITICO\" activa la obligación de notificación a compras@importadoracr.com, de la cual no hay evidencia en el expediente.\n\n**2. Validación de reglas de negocio.** Las exclusiones aplicadas (PROD-005 Licencia Microsoft 365 y PROD-008 Memoria RAM servidor) están amparadas en la política de \"ajuste desactivado\", consistente con contratos de precio fijo y con partidas sin stock o en tránsito; se validan como correctas y trazables. En contraste, la regla de \"Apto para recálculo\" no se cumple sustantivamente: marcar un producto como recalculado con diferencia cero constituye un falso positivo de control, pues el flag debió implicar la aplicación del nuevo tipo de cambio. Se detectan por tanto dos hallazgos: (a) falla lógica en el motor de recálculo (posible desacople entre el tipo de cambio inyectado y la fórmula de precio de venta), y (b) ausencia de bloqueo preventivo ante variaciones superiores al umbral crítico.\n\n**3. Recomendación operativa.** A la Gerencia de Compras: congelar la confirmación de márgenes y reprogramar de inmediato el recálculo con el TC de ₡453,48, verificando la fórmula precio = costo USD × TC × (1 + margen objetivo), y documentar el desvío como incidente de control interno con notificación formal al responsable de compras. A la Gerencia de Ventas: suspender la publicación de precios en los seis SKU afectados hasta la corrección, para evitar cotizaciones y facturaciones bajo costo, y revisar pedidos en curso. Finalmente, se recomienda incorporar una validación de cuadre (diferencia ≠ 0 cuando la variación excede el umbral crítico) y un control compensatorio de aprobación manual obligatoria para variaciones superiores al 1,5%.",
+      "id": "pEw3937xXQs"
+    },
+    {
+      "fecha": "2026-10-19T12:40:11.504-04:00",
+      "tipoCambioDetectado": 453.48,
+      "tipoCambioAnterior": 520,
+      "variacionPorcentual": -12.7923,
+      "tendencia": "BAJISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 1770386,
+          "nuevoPrecioVentaCRC": 1770386,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 821933,
+          "nuevoPrecioVentaCRC": 821933,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 568845,
+          "nuevoPrecioVentaCRC": 568845,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 131623,
+          "nuevoPrecioVentaCRC": 131623,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 109062,
+          "nuevoPrecioVentaCRC": 109062,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 328773,
+          "nuevoPrecioVentaCRC": 328773,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "**DICTAMEN EJECUTIVO DE AUDITORÍA FINANCIERA**\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de −12.7923% (₡520 → ₡453.48) clasificada como CRÍTICA excede en más de ocho veces el umbral de ajuste crítico tolerado (1.5%) y en más de doce veces el umbral de alerta (1%). Un colón que se aprecia frente al dólar en esa magnitud erosiona directamente el margen bruto de importación: el costo en colones de cada bien facturado en USD cae, pero el precio de venta en CRC no se recalcula, de modo que el margen en términos reales no se recompone hacia abajo —el riesgo real es el inverso y grave: si el precio de venta se mantiene fijo en colones mientras el costo de reposición baja, la empresa queda desalineada con el mercado y expuesta a que la competencia traslade la apreciación al cliente final, con pérdida de competitividad; además, todo inventario valorado a tipo de cambio anterior queda sobrevalorado en libros frente a su costo de reposición. La política vigente (monitoreo cada 24 h, notificación a compras@importadoracr.com) no ofrece margen de acción suficiente para una variación de esta escala.\n\n**2. Validación de reglas de negocio.** El proceso resulta internamente inconsistente y requiere observación del auditor. Se reportan 6 productos \"recalculados\" pero los 6 registros muestran `diferenciaCRC: 0` y `nuevoPrecioVentaCRC` idéntico al `precioAnteriorCRC`: no hubo recálculo efectivo, solo una marca de estatus. Con una variación de −12.79% es aritméticamente implausible que un ajuste de precio produzca diferencia nula en los seis ítems, lo que sugiere un defecto en la clase de lógica (falta de aplicación del factor cambiario o sobrescritura del precio con el valor previo). Las exclusiones de PROD-005 y PROD-008 por \"Ajuste desactivado\" son formalmente consistentes como regla de negocio, pero la justificación debe documentarse caso por caso: en licencias el vínculo puede ser contractual, pero en el módulo de memoria RAM (PROD-008) —un componente de importación puro— la exclusión no tiene sustento aparente y debe revisarse. Adicionalmente, no se evidencia en el reporte la aplicación del criterio de \"productos sin stock\" exigido en la validación; el motivo \"Apto para recálculo\" no acredita la verificación de inventario disponible.\n\n**3. Recomendación operativa.** *Compras:* suspender la carga de nuevos pedidos en USD hasta confirmar el tipo de cambio de referencia y renegociar plazos con proveedores para capturar la apreciación del colón; recalcular el costo de reposición de los 8 SKU y actualizar la valoración de inventario. *Ventas:* revisar la política de precios en colones de los 6 productos \"recalculados\", dado que trasladar una baja de costo de −12.79% no aplicada puede dejar la oferta fuera de mercado. *Control interno:* reabrir el ticket del motor de precios para corregir el defecto que produjo diferencias nulas, exigir trazabilidad del criterio \"sin stock\" y elevar a la gerencia la propuesta de endurecer la política: con umbrales de 1% y 1.5%, una variación de esta magnitud debería disparar bloqueo transaccional automático y aprobación humana, no solo un correo a compras.",
+      "id": "nSUTweQf6IE"
+    },
+    {
+      "fecha": "2026-10-19T13:06:01.591-04:00",
+      "tipoCambioDetectado": 453.48,
+      "tipoCambioAnterior": 520,
+      "variacionPorcentual": -12.7923,
+      "tendencia": "BAJISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 1770386,
+          "nuevoPrecioVentaCRC": 1770386,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 821933,
+          "nuevoPrecioVentaCRC": 821933,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 568845,
+          "nuevoPrecioVentaCRC": 568845,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 131623,
+          "nuevoPrecioVentaCRC": 131623,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 109062,
+          "nuevoPrecioVentaCRC": 109062,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 328773,
+          "nuevoPrecioVentaCRC": 328773,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "**DICTAMEN EJECUTIVO DE AUDITORÍA FINANCIERA**\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de −12.7923% (₡520 → ₡453.48) clasificada como CRÍTICA excede en más de ocho veces el umbral de ajuste crítico tolerado (1.5%) y en más de doce veces el umbral de alerta (1%). Un colón que se aprecia frente al dólar en esa magnitud erosiona directamente el margen bruto de importación: el costo en colones de cada bien facturado en USD cae, pero el precio de venta en CRC no se recalcula, de modo que el margen en términos reales no se recompone hacia abajo —el riesgo real es el inverso y grave: si el precio de venta se mantiene fijo en colones mientras el costo de reposición baja, la empresa queda desalineada con el mercado y expuesta a que la competencia traslade la apreciación al cliente final, con pérdida de competitividad; además, todo inventario valorado a tipo de cambio anterior queda sobrevalorado en libros frente a su costo de reposición. La política vigente (monitoreo cada 24 h, notificación a compras@importadoracr.com) no ofrece margen de acción suficiente para una variación de esta escala.\n\n**2. Validación de reglas de negocio.** El proceso resulta internamente inconsistente y requiere observación del auditor. Se reportan 6 productos \"recalculados\" pero los 6 registros muestran `diferenciaCRC: 0` y `nuevoPrecioVentaCRC` idéntico al `precioAnteriorCRC`: no hubo recálculo efectivo, solo una marca de estatus. Con una variación de −12.79% es aritméticamente implausible que un ajuste de precio produzca diferencia nula en los seis ítems, lo que sugiere un defecto en la clase de lógica (falta de aplicación del factor cambiario o sobrescritura del precio con el valor previo). Las exclusiones de PROD-005 y PROD-008 por \"Ajuste desactivado\" son formalmente consistentes como regla de negocio, pero la justificación debe documentarse caso por caso: en licencias el vínculo puede ser contractual, pero en el módulo de memoria RAM (PROD-008) —un componente de importación puro— la exclusión no tiene sustento aparente y debe revisarse. Adicionalmente, no se evidencia en el reporte la aplicación del criterio de \"productos sin stock\" exigido en la validación; el motivo \"Apto para recálculo\" no acredita la verificación de inventario disponible.\n\n**3. Recomendación operativa.** *Compras:* suspender la carga de nuevos pedidos en USD hasta confirmar el tipo de cambio de referencia y renegociar plazos con proveedores para capturar la apreciación del colón; recalcular el costo de reposición de los 8 SKU y actualizar la valoración de inventario. *Ventas:* revisar la política de precios en colones de los 6 productos \"recalculados\", dado que trasladar una baja de costo de −12.79% no aplicada puede dejar la oferta fuera de mercado. *Control interno:* reabrir el ticket del motor de precios para corregir el defecto que produjo diferencias nulas, exigir trazabilidad del criterio \"sin stock\" y elevar a la gerencia la propuesta de endurecer la política: con umbrales de 1% y 1.5%, una variación de esta magnitud debería disparar bloqueo transaccional automático y aprobación humana, no solo un correo a compras.",
+      "id": "TdGCy9Sygf0"
+    },
+    {
+      "fecha": "2026-10-19T13:43:17.946-04:00",
+      "tipoCambioDetectado": 453.48,
+      "tipoCambioAnterior": 520,
+      "variacionPorcentual": -12.7923,
+      "tendencia": "BAJISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 1770386,
+          "nuevoPrecioVentaCRC": 1770386,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 821933,
+          "nuevoPrecioVentaCRC": 821933,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 568845,
+          "nuevoPrecioVentaCRC": 568845,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 131623,
+          "nuevoPrecioVentaCRC": 131623,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 109062,
+          "nuevoPrecioVentaCRC": 109062,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 328773,
+          "nuevoPrecioVentaCRC": 328773,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "**DICTAMEN EJECUTIVO DE AUDITORÍA FINANCIERA**\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de −12.7923% (₡520 → ₡453.48) clasificada como CRÍTICA excede en más de ocho veces el umbral de ajuste crítico tolerado (1.5%) y en más de doce veces el umbral de alerta (1%). Un colón que se aprecia frente al dólar en esa magnitud erosiona directamente el margen bruto de importación: el costo en colones de cada bien facturado en USD cae, pero el precio de venta en CRC no se recalcula, de modo que el margen en términos reales no se recompone hacia abajo —el riesgo real es el inverso y grave: si el precio de venta se mantiene fijo en colones mientras el costo de reposición baja, la empresa queda desalineada con el mercado y expuesta a que la competencia traslade la apreciación al cliente final, con pérdida de competitividad; además, todo inventario valorado a tipo de cambio anterior queda sobrevalorado en libros frente a su costo de reposición. La política vigente (monitoreo cada 24 h, notificación a compras@importadoracr.com) no ofrece margen de acción suficiente para una variación de esta escala.\n\n**2. Validación de reglas de negocio.** El proceso resulta internamente inconsistente y requiere observación del auditor. Se reportan 6 productos \"recalculados\" pero los 6 registros muestran `diferenciaCRC: 0` y `nuevoPrecioVentaCRC` idéntico al `precioAnteriorCRC`: no hubo recálculo efectivo, solo una marca de estatus. Con una variación de −12.79% es aritméticamente implausible que un ajuste de precio produzca diferencia nula en los seis ítems, lo que sugiere un defecto en la clase de lógica (falta de aplicación del factor cambiario o sobrescritura del precio con el valor previo). Las exclusiones de PROD-005 y PROD-008 por \"Ajuste desactivado\" son formalmente consistentes como regla de negocio, pero la justificación debe documentarse caso por caso: en licencias el vínculo puede ser contractual, pero en el módulo de memoria RAM (PROD-008) —un componente de importación puro— la exclusión no tiene sustento aparente y debe revisarse. Adicionalmente, no se evidencia en el reporte la aplicación del criterio de \"productos sin stock\" exigido en la validación; el motivo \"Apto para recálculo\" no acredita la verificación de inventario disponible.\n\n**3. Recomendación operativa.** *Compras:* suspender la carga de nuevos pedidos en USD hasta confirmar el tipo de cambio de referencia y renegociar plazos con proveedores para capturar la apreciación del colón; recalcular el costo de reposición de los 8 SKU y actualizar la valoración de inventario. *Ventas:* revisar la política de precios en colones de los 6 productos \"recalculados\", dado que trasladar una baja de costo de −12.79% no aplicada puede dejar la oferta fuera de mercado. *Control interno:* reabrir el ticket del motor de precios para corregir el defecto que produjo diferencias nulas, exigir trazabilidad del criterio \"sin stock\" y elevar a la gerencia la propuesta de endurecer la política: con umbrales de 1% y 1.5%, una variación de esta magnitud debería disparar bloqueo transaccional automático y aprobación humana, no solo un correo a compras.",
+      "id": "qxlwqsuApXw"
+    },
+    {
+      "fecha": "2026-10-19T13:46:13.203-04:00",
+      "tipoCambioDetectado": 453.48,
+      "tipoCambioAnterior": 520,
+      "variacionPorcentual": -12.7923,
+      "tendencia": "BAJISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 1770386,
+          "nuevoPrecioVentaCRC": 1770386,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 821933,
+          "nuevoPrecioVentaCRC": 821933,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 568845,
+          "nuevoPrecioVentaCRC": 568845,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 131623,
+          "nuevoPrecioVentaCRC": 131623,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 109062,
+          "nuevoPrecioVentaCRC": 109062,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 328773,
+          "nuevoPrecioVentaCRC": 328773,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "**DICTAMEN EJECUTIVO DE AUDITORÍA FINANCIERA**\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de −12.7923% (₡520 → ₡453.48) clasificada como CRÍTICA excede en más de ocho veces el umbral de ajuste crítico tolerado (1.5%) y en más de doce veces el umbral de alerta (1%). Un colón que se aprecia frente al dólar en esa magnitud erosiona directamente el margen bruto de importación: el costo en colones de cada bien facturado en USD cae, pero el precio de venta en CRC no se recalcula, de modo que el margen en términos reales no se recompone hacia abajo —el riesgo real es el inverso y grave: si el precio de venta se mantiene fijo en colones mientras el costo de reposición baja, la empresa queda desalineada con el mercado y expuesta a que la competencia traslade la apreciación al cliente final, con pérdida de competitividad; además, todo inventario valorado a tipo de cambio anterior queda sobrevalorado en libros frente a su costo de reposición. La política vigente (monitoreo cada 24 h, notificación a compras@importadoracr.com) no ofrece margen de acción suficiente para una variación de esta escala.\n\n**2. Validación de reglas de negocio.** El proceso resulta internamente inconsistente y requiere observación del auditor. Se reportan 6 productos \"recalculados\" pero los 6 registros muestran `diferenciaCRC: 0` y `nuevoPrecioVentaCRC` idéntico al `precioAnteriorCRC`: no hubo recálculo efectivo, solo una marca de estatus. Con una variación de −12.79% es aritméticamente implausible que un ajuste de precio produzca diferencia nula en los seis ítems, lo que sugiere un defecto en la clase de lógica (falta de aplicación del factor cambiario o sobrescritura del precio con el valor previo). Las exclusiones de PROD-005 y PROD-008 por \"Ajuste desactivado\" son formalmente consistentes como regla de negocio, pero la justificación debe documentarse caso por caso: en licencias el vínculo puede ser contractual, pero en el módulo de memoria RAM (PROD-008) —un componente de importación puro— la exclusión no tiene sustento aparente y debe revisarse. Adicionalmente, no se evidencia en el reporte la aplicación del criterio de \"productos sin stock\" exigido en la validación; el motivo \"Apto para recálculo\" no acredita la verificación de inventario disponible.\n\n**3. Recomendación operativa.** *Compras:* suspender la carga de nuevos pedidos en USD hasta confirmar el tipo de cambio de referencia y renegociar plazos con proveedores para capturar la apreciación del colón; recalcular el costo de reposición de los 8 SKU y actualizar la valoración de inventario. *Ventas:* revisar la política de precios en colones de los 6 productos \"recalculados\", dado que trasladar una baja de costo de −12.79% no aplicada puede dejar la oferta fuera de mercado. *Control interno:* reabrir el ticket del motor de precios para corregir el defecto que produjo diferencias nulas, exigir trazabilidad del criterio \"sin stock\" y elevar a la gerencia la propuesta de endurecer la política: con umbrales de 1% y 1.5%, una variación de esta magnitud debería disparar bloqueo transaccional automático y aprobación humana, no solo un correo a compras.",
+      "id": "9id5KMmlz20"
+    },
+    {
+      "fecha": "2026-10-19T13:47:01.211-04:00",
+      "tipoCambioDetectado": 453.48,
+      "tipoCambioAnterior": 520,
+      "variacionPorcentual": -12.7923,
+      "tendencia": "BAJISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 1770386,
+          "nuevoPrecioVentaCRC": 1770386,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 821933,
+          "nuevoPrecioVentaCRC": 821933,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 568845,
+          "nuevoPrecioVentaCRC": 568845,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 131623,
+          "nuevoPrecioVentaCRC": 131623,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 109062,
+          "nuevoPrecioVentaCRC": 109062,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 328773,
+          "nuevoPrecioVentaCRC": 328773,
+          "diferenciaCRC": 0,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "**DICTAMEN EJECUTIVO DE AUDITORÍA FINANCIERA**\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de −12.7923% (₡520 → ₡453.48) clasificada como CRÍTICA excede en más de ocho veces el umbral de ajuste crítico tolerado (1.5%) y en más de doce veces el umbral de alerta (1%). Un colón que se aprecia frente al dólar en esa magnitud erosiona directamente el margen bruto de importación: el costo en colones de cada bien facturado en USD cae, pero el precio de venta en CRC no se recalcula, de modo que el margen en términos reales no se recompone hacia abajo —el riesgo real es el inverso y grave: si el precio de venta se mantiene fijo en colones mientras el costo de reposición baja, la empresa queda desalineada con el mercado y expuesta a que la competencia traslade la apreciación al cliente final, con pérdida de competitividad; además, todo inventario valorado a tipo de cambio anterior queda sobrevalorado en libros frente a su costo de reposición. La política vigente (monitoreo cada 24 h, notificación a compras@importadoracr.com) no ofrece margen de acción suficiente para una variación de esta escala.\n\n**2. Validación de reglas de negocio.** El proceso resulta internamente inconsistente y requiere observación del auditor. Se reportan 6 productos \"recalculados\" pero los 6 registros muestran `diferenciaCRC: 0` y `nuevoPrecioVentaCRC` idéntico al `precioAnteriorCRC`: no hubo recálculo efectivo, solo una marca de estatus. Con una variación de −12.79% es aritméticamente implausible que un ajuste de precio produzca diferencia nula en los seis ítems, lo que sugiere un defecto en la clase de lógica (falta de aplicación del factor cambiario o sobrescritura del precio con el valor previo). Las exclusiones de PROD-005 y PROD-008 por \"Ajuste desactivado\" son formalmente consistentes como regla de negocio, pero la justificación debe documentarse caso por caso: en licencias el vínculo puede ser contractual, pero en el módulo de memoria RAM (PROD-008) —un componente de importación puro— la exclusión no tiene sustento aparente y debe revisarse. Adicionalmente, no se evidencia en el reporte la aplicación del criterio de \"productos sin stock\" exigido en la validación; el motivo \"Apto para recálculo\" no acredita la verificación de inventario disponible.\n\n**3. Recomendación operativa.** *Compras:* suspender la carga de nuevos pedidos en USD hasta confirmar el tipo de cambio de referencia y renegociar plazos con proveedores para capturar la apreciación del colón; recalcular el costo de reposición de los 8 SKU y actualizar la valoración de inventario. *Ventas:* revisar la política de precios en colones de los 6 productos \"recalculados\", dado que trasladar una baja de costo de −12.79% no aplicada puede dejar la oferta fuera de mercado. *Control interno:* reabrir el ticket del motor de precios para corregir el defecto que produjo diferencias nulas, exigir trazabilidad del criterio \"sin stock\" y elevar a la gerencia la propuesta de endurecer la política: con umbrales de 1% y 1.5%, una variación de esta magnitud debería disparar bloqueo transaccional automático y aprobación humana, no solo un correo a compras.",
+      "id": "Ytj_x8o4LDI"
+    },
+    {
+      "fecha": "2026-10-19T13:47:33.516-04:00",
+      "tipoCambioDetectado": 700.48,
+      "tipoCambioAnterior": 453.48,
+      "variacionPorcentual": 54.4677,
+      "tendencia": "ALCISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 1770386,
+          "nuevoPrecioVentaCRC": 2734674,
+          "diferenciaCRC": 964288,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 821933,
+          "nuevoPrecioVentaCRC": 1269620,
+          "diferenciaCRC": 447687,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 568845,
+          "nuevoPrecioVentaCRC": 878682,
+          "diferenciaCRC": 309837,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 131623,
+          "nuevoPrecioVentaCRC": 203314,
+          "diferenciaCRC": 71691,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 109062,
+          "nuevoPrecioVentaCRC": 168465,
+          "diferenciaCRC": 59403,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 328773,
+          "nuevoPrecioVentaCRC": 507848,
+          "diferenciaCRC": 179075,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "**DICTAMEN EJECUTIVO DE AUDITORÍA FINANCIERA**\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de −12.7923% (₡520 → ₡453.48) clasificada como CRÍTICA excede en más de ocho veces el umbral de ajuste crítico tolerado (1.5%) y en más de doce veces el umbral de alerta (1%). Un colón que se aprecia frente al dólar en esa magnitud erosiona directamente el margen bruto de importación: el costo en colones de cada bien facturado en USD cae, pero el precio de venta en CRC no se recalcula, de modo que el margen en términos reales no se recompone hacia abajo —el riesgo real es el inverso y grave: si el precio de venta se mantiene fijo en colones mientras el costo de reposición baja, la empresa queda desalineada con el mercado y expuesta a que la competencia traslade la apreciación al cliente final, con pérdida de competitividad; además, todo inventario valorado a tipo de cambio anterior queda sobrevalorado en libros frente a su costo de reposición. La política vigente (monitoreo cada 24 h, notificación a compras@importadoracr.com) no ofrece margen de acción suficiente para una variación de esta escala.\n\n**2. Validación de reglas de negocio.** El proceso resulta internamente inconsistente y requiere observación del auditor. Se reportan 6 productos \"recalculados\" pero los 6 registros muestran `diferenciaCRC: 0` y `nuevoPrecioVentaCRC` idéntico al `precioAnteriorCRC`: no hubo recálculo efectivo, solo una marca de estatus. Con una variación de −12.79% es aritméticamente implausible que un ajuste de precio produzca diferencia nula en los seis ítems, lo que sugiere un defecto en la clase de lógica (falta de aplicación del factor cambiario o sobrescritura del precio con el valor previo). Las exclusiones de PROD-005 y PROD-008 por \"Ajuste desactivado\" son formalmente consistentes como regla de negocio, pero la justificación debe documentarse caso por caso: en licencias el vínculo puede ser contractual, pero en el módulo de memoria RAM (PROD-008) —un componente de importación puro— la exclusión no tiene sustento aparente y debe revisarse. Adicionalmente, no se evidencia en el reporte la aplicación del criterio de \"productos sin stock\" exigido en la validación; el motivo \"Apto para recálculo\" no acredita la verificación de inventario disponible.\n\n**3. Recomendación operativa.** *Compras:* suspender la carga de nuevos pedidos en USD hasta confirmar el tipo de cambio de referencia y renegociar plazos con proveedores para capturar la apreciación del colón; recalcular el costo de reposición de los 8 SKU y actualizar la valoración de inventario. *Ventas:* revisar la política de precios en colones de los 6 productos \"recalculados\", dado que trasladar una baja de costo de −12.79% no aplicada puede dejar la oferta fuera de mercado. *Control interno:* reabrir el ticket del motor de precios para corregir el defecto que produjo diferencias nulas, exigir trazabilidad del criterio \"sin stock\" y elevar a la gerencia la propuesta de endurecer la política: con umbrales de 1% y 1.5%, una variación de esta magnitud debería disparar bloqueo transaccional automático y aprobación humana, no solo un correo a compras.",
+      "id": "pZVBWg-7hYs"
+    },
+    {
+      "fecha": "2026-10-19T13:48:18.689-04:00",
+      "tipoCambioDetectado": 3174.48,
+      "tipoCambioAnterior": 700.48,
+      "variacionPorcentual": 353.1864,
+      "tendencia": "ALCISTA",
+      "nivelRiesgo": "CRITICO",
+      "totalProductosAjustados": 6,
+      "productosAfectados": [
+        {
+          "id": "PROD-001",
+          "sku": "SRV-DELL-R750",
+          "nombre": "Servidor Dell PowerEdge R750 32GB RAM",
+          "categoria": "Infraestructura",
+          "precioAnteriorCRC": 2734674,
+          "nuevoPrecioVentaCRC": 12393170,
+          "diferenciaCRC": 9658496,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-002",
+          "sku": "NET-CISCO-C9200",
+          "nombre": "Switch Cisco Catalyst 9200L 24 Puertos PoE+",
+          "categoria": "Redes",
+          "precioAnteriorCRC": 1269620,
+          "nuevoPrecioVentaCRC": 5753745,
+          "diferenciaCRC": 4484125,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-003",
+          "sku": "LAP-LEN-T14",
+          "nombre": "ThinkPad T14 Gen 4 Core i7 16GB 512GB SSD",
+          "categoria": "Cómputo",
+          "precioAnteriorCRC": 878682,
+          "nuevoPrecioVentaCRC": 3982068,
+          "diferenciaCRC": 3103386,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-004",
+          "sku": "MON-ASUS-VG27",
+          "nombre": "Monitor ASUS TUF Gaming 27 IPS 165Hz",
+          "categoria": "Periféricos",
+          "precioAnteriorCRC": 203314,
+          "nuevoPrecioVentaCRC": 921393,
+          "diferenciaCRC": 718079,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-006",
+          "sku": "CAB-PAND-CAT6A",
+          "nombre": "Bobina Cable UTP Panduit Cat6A 305m",
+          "categoria": "Cableado",
+          "precioAnteriorCRC": 168465,
+          "nuevoPrecioVentaCRC": 763462,
+          "diferenciaCRC": 594997,
+          "motivo": "Apto para recálculo"
+        },
+        {
+          "id": "PROD-007",
+          "sku": "UPS-APC-SMT1500",
+          "nombre": "Smart-UPS APC 1500VA LCD 120V con SmartConnect",
+          "categoria": "Energía",
+          "precioAnteriorCRC": 507848,
+          "nuevoPrecioVentaCRC": 2301498,
+          "diferenciaCRC": 1793650,
+          "motivo": "Apto para recálculo"
+        }
+      ],
+      "dictamenIA": "**DICTAMEN EJECUTIVO DE AUDITORÍA FINANCIERA**\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de −12.7923% (₡520 → ₡453.48) clasificada como CRÍTICA excede en más de ocho veces el umbral de ajuste crítico tolerado (1.5%) y en más de doce veces el umbral de alerta (1%). Un colón que se aprecia frente al dólar en esa magnitud erosiona directamente el margen bruto de importación: el costo en colones de cada bien facturado en USD cae, pero el precio de venta en CRC no se recalcula, de modo que el margen en términos reales no se recompone hacia abajo —el riesgo real es el inverso y grave: si el precio de venta se mantiene fijo en colones mientras el costo de reposición baja, la empresa queda desalineada con el mercado y expuesta a que la competencia traslade la apreciación al cliente final, con pérdida de competitividad; además, todo inventario valorado a tipo de cambio anterior queda sobrevalorado en libros frente a su costo de reposición. La política vigente (monitoreo cada 24 h, notificación a compras@importadoracr.com) no ofrece margen de acción suficiente para una variación de esta escala.\n\n**2. Validación de reglas de negocio.** El proceso resulta internamente inconsistente y requiere observación del auditor. Se reportan 6 productos \"recalculados\" pero los 6 registros muestran `diferenciaCRC: 0` y `nuevoPrecioVentaCRC` idéntico al `precioAnteriorCRC`: no hubo recálculo efectivo, solo una marca de estatus. Con una variación de −12.79% es aritméticamente implausible que un ajuste de precio produzca diferencia nula en los seis ítems, lo que sugiere un defecto en la clase de lógica (falta de aplicación del factor cambiario o sobrescritura del precio con el valor previo). Las exclusiones de PROD-005 y PROD-008 por \"Ajuste desactivado\" son formalmente consistentes como regla de negocio, pero la justificación debe documentarse caso por caso: en licencias el vínculo puede ser contractual, pero en el módulo de memoria RAM (PROD-008) —un componente de importación puro— la exclusión no tiene sustento aparente y debe revisarse. Adicionalmente, no se evidencia en el reporte la aplicación del criterio de \"productos sin stock\" exigido en la validación; el motivo \"Apto para recálculo\" no acredita la verificación de inventario disponible.\n\n**3. Recomendación operativa.** *Compras:* suspender la carga de nuevos pedidos en USD hasta confirmar el tipo de cambio de referencia y renegociar plazos con proveedores para capturar la apreciación del colón; recalcular el costo de reposición de los 8 SKU y actualizar la valoración de inventario. *Ventas:* revisar la política de precios en colones de los 6 productos \"recalculados\", dado que trasladar una baja de costo de −12.79% no aplicada puede dejar la oferta fuera de mercado. *Control interno:* reabrir el ticket del motor de precios para corregir el defecto que produjo diferencias nulas, exigir trazabilidad del criterio \"sin stock\" y elevar a la gerencia la propuesta de endurecer la política: con umbrales de 1% y 1.5%, una variación de esta magnitud debería disparar bloqueo transaccional automático y aprobación humana, no solo un correo a compras.",
+      "id": "Id1fDyQhQbM"
+    }
+  ],
+  "tipocambio": {
+    "dolar": {
+      "venta": {
+        "fecha": "2026-10-19",
+        "valor": 3174.48
+      },
+      "compra": {
+        "fecha": "2026-10-19",
+        "valor": 448.31
+      }
+    },
+    "euro": {
+      "fecha": "2026-10-19",
+      "dolares": 1.1223,
+      "colones": 508.94
+    }
+  },
+  "$schema": "./node_modules/json-server/schema.json"
+}
