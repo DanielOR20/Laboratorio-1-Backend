@@ -1,0 +1,577 @@
+{
+  "name": "My workflow 5",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        16
+      ],
+      "id": "db484415-fe5f-4290-9a9a-3f638acf7107",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:3000/tipocambio",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        -16,
+        -48
+      ],
+      "id": "273a8e6b-f12c-48ed-af56-55ea94675eeb",
+      "name": "HTTP_API_TipoCambio"
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:3000/historicoTipoCambio",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        448,
+        0
+      ],
+      "id": "529ea8f7-6ec1-4061-b032-4db0c247b75d",
+      "name": "HTTP_JSON_Server_Historico"
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:3000/productos",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        672,
+        0
+      ],
+      "id": "c5b0b099-c750-4242-a733-e5df916577d8",
+      "name": "HTTP_JSON_Server_Productos"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ============================================================================\n// RETO 1: JERARQUÍA DE CLASES CON HERENCIA Y POLIMORFISMO\n// ============================================================================\n\n// 1. Clase Base\nclass ProductoBase {\n  constructor({ id, sku, nombre, categoria, proveedor, precioCostoUSD, margenGanancia, precioVentaCRC, stock, ajusteAutomatico, protegidoPorContrato }) {\n    this.id = id;\n    this.sku = sku;\n    this.nombre = nombre;\n    this.categoria = categoria || 'General';\n    this.proveedor = proveedor || 'No asignado';\n    this.precioCostoUSD = Number(precioCostoUSD);\n    this.margenGanancia = Number(margenGanancia);\n    this.precioVentaCRC = Number(precioVentaCRC);\n    this.stock = Number(stock || 0);\n    this.ajusteAutomatico = Boolean(ajusteAutomatico);\n    this.protegidoPorContrato = Boolean(protegidoPorContrato);\n  }\n\n  esElegibleParaAjuste() {\n    if (!this.ajusteAutomatico) return { elegible: false, razon: 'Ajuste desactivado' };\n    if (this.protegidoPorContrato) return { elegible: false, razon: 'Protegido por contrato' };\n    if (this.stock <= 0) return { elegible: false, razon: 'Sin stock' };\n    return { elegible: true, razon: 'Apto para recálculo' };\n  }\n\n  // Método base a sobreescribir (Polimorfismo)\n  calcularNuevoPrecioCRC(nuevoTipoCambio) {\n    const validacion = this.esElegibleParaAjuste();\n    if (!validacion.elegible) {\n      return { precioActualizado: false, precioFinalCRC: this.precioVentaCRC, razon: validacion.razon, tipoRegla: 'Base' };\n    }\n    const baseUSD = this.precioCostoUSD * (1 + this.margenGanancia);\n    const nuevoPrecioCRC = Math.round(baseUSD * nuevoTipoCambio);\n    return {\n      precioActualizado: true,\n      precioAnteriorCRC: this.precioVentaCRC,\n      nuevoPrecioCRC,\n      diferenciaCRC: nuevoPrecioCRC - this.precioVentaCRC,\n      razon: validacion.razon,\n      tipoRegla: 'Base Genérica'\n    };\n  }\n}\n\n// 2. Subclase 1: Bienes Físicos / Hardware (Hereda de ProductoBase)\nclass ProductoHardware extends ProductoBase {\n  constructor(data) {\n    super(data);\n    this.recargoLogisticaUSD = 0.03; // 3% recargo logístico de flete y aduana\n  }\n\n  // Sobreescritura polimórfica: Aplica aranceles y transporte físico\n  calcularNuevoPrecioCRC(nuevoTipoCambio) {\n    const validacion = this.esElegibleParaAjuste();\n    if (!validacion.elegible) {\n      return { precioActualizado: false, precioFinalCRC: this.precioVentaCRC, razon: validacion.razon, tipoRegla: 'Hardware Físico' };\n    }\n\n    const costoTotalUSD = this.precioCostoUSD * (1 + this.recargoLogisticaUSD);\n    const baseConMargenUSD = costoTotalUSD * (1 + this.margenGanancia);\n    const nuevoPrecioCRC = Math.round(baseConMargenUSD * nuevoTipoCambio);\n\n    return {\n      precioActualizado: true,\n      precioAnteriorCRC: this.precioVentaCRC,\n      nuevoPrecioCRC,\n      diferenciaCRC: nuevoPrecioCRC - this.precioVentaCRC,\n      razon: `${validacion.razon} (Aplica recargo logístico hardware)`,\n      tipoRegla: 'Hardware Físico'\n    };\n  }\n}\n\n// 3. Subclase 2: Software y Licencias Digitales (Hereda de ProductoBase)\nclass ProductoLicenciaDigital extends ProductoBase {\n  constructor(data) {\n    super(data);\n    this.impuestoServicioDigital = 0.02; // 2% retención transfronteriza digital\n  }\n\n  // Sobreescritura polimórfica: Aplica tributo de intangibles sin flete\n  calcularNuevoPrecioCRC(nuevoTipoCambio) {\n    const validacion = this.esElegibleParaAjuste();\n    if (!validacion.elegible) {\n      return { precioActualizado: false, precioFinalCRC: this.precioVentaCRC, razon: validacion.razon, tipoRegla: 'Licencia Digital' };\n    }\n\n    const baseUSD = this.precioCostoUSD * (1 + this.margenGanancia + this.impuestoServicioDigital);\n    const nuevoPrecioCRC = Math.round(baseUSD * nuevoTipoCambio);\n\n    return {\n      precioActualizado: true,\n      precioAnteriorCRC: this.precioVentaCRC,\n      nuevoPrecioCRC,\n      diferenciaCRC: nuevoPrecioCRC - this.precioVentaCRC,\n      razon: `${validacion.razon} (Aplica factor fiscal digital)`,\n      tipoRegla: 'Licencia Digital'\n    };\n  }\n}\n\n// 4. Entidad Monitor de Divisa\nclass MonitorDivisa {\n  constructor(tipoCambioActual, tipoCambioHistorico) {\n    if (typeof tipoCambioActual !== 'number' || isNaN(tipoCambioActual) || tipoCambioActual <= 0) {\n      throw new Error(`[MonitorDivisa] Tipo de cambio actual inválido: ${tipoCambioActual}`);\n    }\n    if (typeof tipoCambioHistorico !== 'number' || isNaN(tipoCambioHistorico) || tipoCambioHistorico <= 0) {\n      throw new Error(`[MonitorDivisa] Tipo de cambio histórico inválido: ${tipoCambioHistorico}`);\n    }\n    this.tipoCambioActual = tipoCambioActual;\n    this.tipoCambioHistorico = tipoCambioHistorico;\n  }\n\n  calcularVariacionPorcentual() {\n    const variacion = ((this.tipoCambioActual - this.tipoCambioHistorico) / this.tipoCambioHistorico) * 100;\n    return Number(variacion.toFixed(4));\n  }\n\n  obtenerDiagnostico(umbralAlerta, umbralCritico) {\n    const variacion = this.calcularVariacionPorcentual();\n    let tendencia = 'ESTABLE';\n    if (variacion > 0) tendencia = 'ALCISTA';\n    else if (variacion < 0) tendencia = 'BAJISTA';\n\n    const esCritico = Math.abs(variacion) >= umbralCritico;\n    const esAlerta = Math.abs(variacion) >= umbralAlerta;\n\n    return {\n      variacionPorcentual: variacion,\n      tendencia,\n      nivelRiesgo: esCritico ? 'CRITICO' : (esAlerta ? 'MODERADO' : 'BAJO'),\n      requiereAjuste: esCritico\n    };\n  }\n}\n\n// ============================================================================\n// EXTRACCIÓN Y EJECUCIÓN EN N8N\n// ============================================================================\n\n// 1. Tipo de Cambio (Soporta API de Hacienda o mock local)\nconst rawTC = $('HTTP_API_TipoCambio').first().json;\nlet tcActual = null;\nif (rawTC.dolar?.venta?.valor) {\n  tcActual = Number(rawTC.dolar.venta.valor);\n} else if (rawTC.venta?.valor) {\n  tcActual = Number(rawTC.venta.valor);\n} else if (rawTC.tipoCambioVenta || rawTC.valor) {\n  tcActual = Number(rawTC.tipoCambioVenta || rawTC.valor);\n} else {\n  tcActual = Number(rawTC.precio || rawTC.rate || Object.values(rawTC)[0]);\n}\n\n// 2. Feriados Oficiales (Segunda API / Reto 2)\nconst feriadosRaw = $('HTTP_API_FeriadosCR').all().map(item => item.json);\nconst fechaHoy = new Date();\nconst fechaHoyISO = fechaHoy.toISOString().split('T')[0];\nconst esFinDeSemana = (fechaHoy.getDay() === 0 || fechaHoy.getDay() === 6);\nconst feriadoHoy = feriadosRaw.find(f => f.date === fechaHoyISO);\nconst esDiaFeriado = Boolean(feriadoHoy);\n\n// Regla de Negocio Reto 2: El mercado cambiario solo opera en días hábiles\nconst mercadoAbierto = !esDiaFeriado && !esFinDeSemana;\n\n// 3. Histórico de JSON Server\nconst historicoLista = $('HTTP_JSON_Server_Historico').all().map(item => item.json);\nconst ultimoRegistro = historicoLista[historicoLista.length - 1];\nconst ultimoHistorico = Number(ultimoRegistro.tipoCambioVenta || ultimoRegistro.valor);\n\n// 4. Catálogo de Productos y Desduplicación\nconst todosProductosRaw = $('HTTP_JSON_Server_Productos').all().map(item => item.json);\nconst mapaProductos = new Map();\ntodosProductosRaw.forEach(p => {\n  if (p && p.id && !mapaProductos.has(p.id)) {\n    mapaProductos.set(p.id, p);\n  }\n});\nconst catalogoUnico = Array.from(mapaProductos.values());\n\n// 5. Instanciación y Diagnóstico\nconst UMBRAL_ALERTA = 1.0;\nconst UMBRAL_CRITICO = 1.5;\n\nconst monitor = new MonitorDivisa(tcActual, ultimoHistorico);\nconst diagnostico = monitor.obtenerDiagnostico(UMBRAL_ALERTA, UMBRAL_CRITICO);\n\n// Decisión Final Combinada (Reto 2): Solo se ajusta si hay volatilidad Y el mercado está abierto\nconst requiereAjusteFinal = diagnostico.requiereAjuste && mercadoAbierto;\n\nconst productosAjustados = [];\nconst productosOmitidos = [];\n\n// 6. Aplicación Polimórfica según la Categoría (Reto 1)\ncatalogoUnico.forEach(item => {\n  let productoInstanciado;\n  const cat = (item.categoria || '').toLowerCase();\n  \n  if (cat.includes('licencia') || cat.includes('software') || cat.includes('digital') || cat.includes('servicio')) {\n    productoInstanciado = new ProductoLicenciaDigital(item);\n  } else {\n    productoInstanciado = new ProductoHardware(item);\n  }\n\n  // Método común ejecutado de forma polimórfica\n  const resultado = productoInstanciado.calcularNuevoPrecioCRC(monitor.tipoCambioActual);\n\n  if (resultado.precioActualizado) {\n    productosAjustados.push({\n      id: String(productoInstanciado.id),\n      sku: String(productoInstanciado.sku),\n      nombre: String(productoInstanciado.nombre),\n      categoria: String(productoInstanciado.categoria),\n      reglaAplicada: resultado.tipoRegla,\n      precioAnteriorCRC: Number(resultado.precioAnteriorCRC),\n      nuevoPrecioVentaCRC: Number(resultado.nuevoPrecioCRC),\n      diferenciaCRC: Number(resultado.diferenciaCRC),\n      motivo: String(resultado.razon)\n    });\n  } else {\n    productosOmitidos.push({\n      id: String(productoInstanciado.id),\n      sku: String(productoInstanciado.sku),\n      nombre: String(productoInstanciado.nombre),\n      reglaAplicada: resultado.tipoRegla,\n      precioFinalCRC: Number(resultado.precioFinalCRC),\n      motivo: String(resultado.razon)\n    });\n  }\n});\n\n// 7. Salida consolidada\nreturn [\n  {\n    json: {\n      tipoCambioActual: monitor.tipoCambioActual,\n      tipoCambioHistorico: monitor.tipoCambioHistorico,\n      variacionPorcentual: diagnostico.variacionPorcentual,\n      tendencia: diagnostico.tendencia,\n      nivelRiesgo: diagnostico.nivelRiesgo,\n      mercadoAbierto,\n      requiereAjuste: requiereAjusteFinal,\n      motivoMercado: !mercadoAbierto \n        ? (esFinDeSemana ? 'Mercado cerrado por fin de semana' : `Mercado cerrado por feriado bancario: ${feriadoHoy.localName}`)\n        : 'Mercado financiero abierto',\n      calendarioMercado: {\n        esDiaFeriado,\n        nombreFeriado: feriadoHoy ? feriadoHoy.localName : 'Día hábil regular',\n        esFinDeSemana\n      },\n      totalEvaluados: catalogoUnico.length,\n      totalAjustados: productosAjustados.length,\n      totalOmitidos: productosOmitidos.length,\n      productosAjustados,\n      productosOmitidos\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        0
+      ],
+      "id": "15c18565-9c98-4e80-bbaf-4253b3edfdb1",
+      "name": "Code_POO_LogicaNegocio"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "58ef967d-fd6c-4080-a12a-bb9ab05605d6",
+              "leftValue": "={{ $json.requiereAjuste }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1232,
+        0
+      ],
+      "id": "fc04aab4-3171-44b2-91b3-7e81ec0cc5fa",
+      "name": "IF_Requiere_Ajuste"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Actúa como un Auditor Financiero Senior. \n\nAntes de redactar tu dictamen, consulta la herramienta 'consultar_politicas_empresa' para conocer los umbrales oficiales y políticas de riesgo de la empresa.\n\nLuego, revisa el siguiente ajuste automático de precios ejecutado por las clases de lógica de negocio:\n- Tipo de cambio anterior: ₡{{ $('Code_POO_LogicaNegocio').item.json.tipoCambioHistorico }}\n- Tipo de cambio actual: ₡{{ $('Code_POO_LogicaNegocio').item.json.tipoCambioActual }}\n- Variación detectada: {{ $('Code_POO_LogicaNegocio').item.json.variacionPorcentual }}% (Tendencia: {{ $('Code_POO_LogicaNegocio').item.json.tendencia }}, Nivel: {{ $('Code_POO_LogicaNegocio').item.json.nivelRiesgo }})\n- Total de productos evaluados: {{ $('Code_POO_LogicaNegocio').item.json.totalEvaluados }}\n- Total de productos recalculados: {{ $('Code_POO_LogicaNegocio').item.json.totalAjustados }}\n- Detalle de ajustes aplicados: {{ JSON.stringify($('Code_POO_LogicaNegocio').item.json.productosAjustados) }}\n- Productos excluidos: {{ JSON.stringify($('Code_POO_LogicaNegocio').item.json.productosOmitidos) }}\n\nGenera un dictamen ejecutivo breve (máximo 3 párrafos concisos) que incluya:\n1. Diagnóstico del impacto de la variación cambiaria sobre los márgenes de importación contrastado con las políticas consultadas.\n2. Validación de las reglas de negocio aplicadas (exclusiones de contratos y productos sin stock).\n3. Recomendación operativa para la gerencia de compras y ventas.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1696,
+        -16
+      ],
+      "id": "564dc90f-16c8-4d94-8495-9f687249c5ac",
+      "name": "Agente_Auditor_Precios"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        1696,
+        240
+      ],
+      "id": "21b13bbf-691c-4ccb-aaac-013367e8b441",
+      "name": "DeepSeek Chat Model",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "R55WdzDJmh342Pzd",
+          "name": "DeepSeek account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:3000/auditoriaAjustes",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"fecha\": \"{{ $now.toISO() }}\",\n  \"tipoCambioDetectado\": {{ $('Code_POO_LogicaNegocio').item.json.tipoCambioActual }},\n  \"tipoCambioAnterior\": {{ $('Code_POO_LogicaNegocio').item.json.tipoCambioHistorico }},\n  \"variacionPorcentual\": {{ $('Code_POO_LogicaNegocio').item.json.variacionPorcentual }},\n  \"tendencia\": \"{{ $('Code_POO_LogicaNegocio').item.json.tendencia }}\",\n  \"nivelRiesgo\": \"{{ $('Code_POO_LogicaNegocio').item.json.nivelRiesgo }}\",\n  \"totalProductosAjustados\": {{ $('Code_POO_LogicaNegocio').item.json.totalAjustados }},\n  \"productosAfectados\": {{ JSON.stringify($('Code_POO_LogicaNegocio').item.json.productosAjustados) }},\n  \"dictamenIA\": {{ JSON.stringify($json.output) }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        2240,
+        -16
+      ],
+      "id": "6a95a978-f37a-456e-957d-3a61ed71bc2c",
+      "name": "HTTP_Registrar_Auditoria"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "=productosAfectados",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2512,
+        -16
+      ],
+      "id": "a69ee4a8-757d-40e5-b4f4-45362621269b",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=http://localhost:3000/productos/{{ $json.id }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"precioVentaCRC\": {{ $json.nuevoPrecioVentaCRC }},\n  \"ultimaActualizacion\": \"{{ $now.toISO() }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        2688,
+        -16
+      ],
+      "id": "88ef1b36-dc94-4342-a97a-96e260d7bffb",
+      "name": "HTTP_Actualizar_Producto_Precio"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:3000/historicoTipoCambio",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"fecha\": \"{{ $now.toISO() }}\",\n  \"tipoCambioCompra\": 123,\n  \"tipoCambioVenta\": {{ $('Code_POO_LogicaNegocio').item.json.tipoCambioActual }},\n  \"variacionDetectada\": {{ $('Code_POO_LogicaNegocio').item.json.variacionPorcentual }},\n  \"fuente\": \"BCCR / Hacienda\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        2960,
+        -16
+      ],
+      "id": "8e62d26a-ce08-49c0-bc21-7ee7f3949948",
+      "name": "HTTP_Guardar_Nuevo_Historico",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "\"Consulta la configuración interna de la empresa (umbrales de alerta y ajuste crítico tolerados) desde el backend local.\"",
+        "url": "http://localhost:3000/configuracion",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.5,
+      "position": [
+        1840,
+        240
+      ],
+      "id": "7adb8cd8-d80e-4344-9a87-9af57fdff75f",
+      "name": "consultar_politicas_empresa"
+    },
+    {
+      "parameters": {
+        "content": "El flujo consume la API oficial de Hacienda para capturar el tipo de cambio del colón en tiempo real. ",
+        "width": 224
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "3cc40d76-aae0-4acb-82bc-8e09c82a81a0",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "consulta dos colecciones en nuestro backend local, la tabla historicoTipoCambio para obtener la última referencia registrada y la tabla productos con el catálogo comercial importado.",
+        "width": 352
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        432,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "fb8da0bd-7bca-41f2-83b6-138b472bda11",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "En el nodo Code implementamos la Programación Orientada a Objetos mediante dos clases de dominio"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        832,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "7cca4b6b-a2c4-4d34-a0c5-3b153f473634",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "Evalúa la bandera booleana requiereAjuste. Si la variación no alcanza el 1.5%, toma la rama false y finaliza sin generar llamadas innecesarias ni alterar la base de datos. Si supera el umbral, ingresa a la rama true para la auditoría y actualización.",
+        "width": 368
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1104,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "16b674fd-6faf-4f0c-b78e-81d399aa3da8",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "En la rama true, el nodo Agente_Auditor_Precios actúa como un Auditor Financiero Senior impulsado por DeepSeek. No es un LLM aislado: implementa el patrón ReAct a través de su herramienta conectada consultar_politicas_empresa. Antes de emitir el dictamen, el agente invoca de forma autónoma dicha herramienta (GET /configuracion) para contrastar la variación real contra las políticas corporativas internas, generando un análisis ejecutivo financiero formal",
+        "height": 192,
+        "width": 576
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1520,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "68c84bfc-3d55-44ed-96ac-7e559101a7f7",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "Persistencia de Auditoría: Se registra el informe completo en /auditoriaAjustes vía POST"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2160,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "0238a711-7604-453f-966a-a0dd13299725",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "Actualización de Precios: Mediante un nodo Split Out se itera sobre los productos aptos para aplicar un PATCH /productos/:id solo a los ítems elegibles.",
+        "width": 336
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2480,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "b9242eba-e3bd-46e6-acef-2213de1e532d",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "Cierre de Ciclo Histórico: El último nodo guarda vía POST el tipo de cambio del día en /historicoTipoCambio"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2880,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "e9a0fb1b-2dc1-4518-9c4e-e40da5361caf",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Extraemos los datos calculados por el nodo POO\nconst datosPOO = $('Code_POO_LogicaNegocio').first().json;\n\n// 2. Extraemos el dictamen generado por el Agente de IA\nconst dictamenIA = $('Agente_Auditor_Precios').first().json.output;\n\n// 3. Estructuramos la comparativa de productos (Antes vs Después)\nconst detalleProductosAjustados = datosPOO.productosAjustados.map(prod => ({\n  producto: prod.nombre,\n  categoria: prod.categoria,\n  precioOriginalCRC: `₡${prod.precioAnteriorCRC.toLocaleString('es-CR')}`,\n  nuevoPrecioCRC: `₡${prod.nuevoPrecioVentaCRC.toLocaleString('es-CR')}`,\n  diferenciaAjuste: `₡${prod.diferenciaCRC.toLocaleString('es-CR')}`,\n  estado: 'Actualizado en DB'\n}));\n\nconst productosOmitidos = datosPOO.productosOmitidos.map(prod => ({\n  producto: prod.nombre,\n  precioActualCRC: `₡${prod.precioFinalCRC.toLocaleString('es-CR')}`,\n  motivoExclusion: prod.motivo\n}));\n\n// 4. Retornamos el objeto consolidado para mostrar en pantalla\nreturn [{\n  json: {\n    estadoOperacion: \"Ajuste de Precios Ejecutado Exitosamente\",\n    fechaEjecucion: new Date().toLocaleString('es-CR'),\n    resumenMercado: {\n      tipoCambioHistorico: `₡${datosPOO.tipoCambioHistorico}`,\n      tipoCambioActual: `₡${datosPOO.tipoCambioActual}`,\n      variacionPorcentual: `${datosPOO.variacionPorcentual}%`,\n      tendencia: datosPOO.tendencia,\n      nivelRiesgo: datosPOO.nivelRiesgo\n    },\n    resumenInventario: {\n      totalEvaluados: datosPOO.totalEvaluados,\n      totalActualizados: datosPOO.totalAjustados,\n      totalSinCambios: datosPOO.totalOmitidos\n    },\n    comparativaPrecios: detalleProductosAjustados,\n    productosNoModificados: productosOmitidos,\n    auditoriaInteligenciaArtificial: dictamenIA\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3296,
+        -16
+      ],
+      "id": "83b1b67c-d45c-4d2b-beb9-09dc05db70d4",
+      "name": "Resumen_Cambios_Final"
+    },
+    {
+      "parameters": {
+        "content": "Resumen de ccambios \n"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3216,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "1e0b9dd3-1463-4e6f-89af-9600c7f29da6",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "url": "https://date.nager.at/api/v3/PublicHolidays/2026/CR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        -16,
+        112
+      ],
+      "id": "30b715a3-1abd-4a9a-9215-1a5e35b24400",
+      "name": "HTTP_API_FeriadosCR"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "f7fddc41-912c-4c16-9ec8-8f5014bdd9ce",
+      "name": "Merge_Mercado_Calendario"
+    }
+  ],
+  "pinData": {
+    "Agente_Auditor_Precios": [
+      {
+        "json": {
+          "output": "**DICTAMEN EJECUTIVO DE AUDITORÍA FINANCIERA**\n\n**1. Diagnóstico del impacto cambiario.** La variación detectada de −12.7923% (₡520 → ₡453.48) clasificada como CRÍTICA excede en más de ocho veces el umbral de ajuste crítico tolerado (1.5%) y en más de doce veces el umbral de alerta (1%). Un colón que se aprecia frente al dólar en esa magnitud erosiona directamente el margen bruto de importación: el costo en colones de cada bien facturado en USD cae, pero el precio de venta en CRC no se recalcula, de modo que el margen en términos reales no se recompone hacia abajo —el riesgo real es el inverso y grave: si el precio de venta se mantiene fijo en colones mientras el costo de reposición baja, la empresa queda desalineada con el mercado y expuesta a que la competencia traslade la apreciación al cliente final, con pérdida de competitividad; además, todo inventario valorado a tipo de cambio anterior queda sobrevalorado en libros frente a su costo de reposición. La política vigente (monitoreo cada 24 h, notificación a compras@importadoracr.com) no ofrece margen de acción suficiente para una variación de esta escala.\n\n**2. Validación de reglas de negocio.** El proceso resulta internamente inconsistente y requiere observación del auditor. Se reportan 6 productos \"recalculados\" pero los 6 registros muestran `diferenciaCRC: 0` y `nuevoPrecioVentaCRC` idéntico al `precioAnteriorCRC`: no hubo recálculo efectivo, solo una marca de estatus. Con una variación de −12.79% es aritméticamente implausible que un ajuste de precio produzca diferencia nula en los seis ítems, lo que sugiere un defecto en la clase de lógica (falta de aplicación del factor cambiario o sobrescritura del precio con el valor previo). Las exclusiones de PROD-005 y PROD-008 por \"Ajuste desactivado\" son formalmente consistentes como regla de negocio, pero la justificación debe documentarse caso por caso: en licencias el vínculo puede ser contractual, pero en el módulo de memoria RAM (PROD-008) —un componente de importación puro— la exclusión no tiene sustento aparente y debe revisarse. Adicionalmente, no se evidencia en el reporte la aplicación del criterio de \"productos sin stock\" exigido en la validación; el motivo \"Apto para recálculo\" no acredita la verificación de inventario disponible.\n\n**3. Recomendación operativa.** *Compras:* suspender la carga de nuevos pedidos en USD hasta confirmar el tipo de cambio de referencia y renegociar plazos con proveedores para capturar la apreciación del colón; recalcular el costo de reposición de los 8 SKU y actualizar la valoración de inventario. *Ventas:* revisar la política de precios en colones de los 6 productos \"recalculados\", dado que trasladar una baja de costo de −12.79% no aplicada puede dejar la oferta fuera de mercado. *Control interno:* reabrir el ticket del motor de precios para corregir el defecto que produjo diferencias nulas, exigir trazabilidad del criterio \"sin stock\" y elevar a la gerencia la propuesta de endurecer la política: con umbrales de 1% y 1.5%, una variación de esta magnitud debería disparar bloqueo transaccional automático y aprobación humana, no solo un correo a compras."
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP_API_FeriadosCR",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP_API_TipoCambio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_API_TipoCambio": {
+      "main": [
+        [
+          {
+            "node": "Merge_Mercado_Calendario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_JSON_Server_Historico": {
+      "main": [
+        [
+          {
+            "node": "HTTP_JSON_Server_Productos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_JSON_Server_Productos": {
+      "main": [
+        [
+          {
+            "node": "Code_POO_LogicaNegocio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code_POO_LogicaNegocio": {
+      "main": [
+        [
+          {
+            "node": "IF_Requiere_Ajuste",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF_Requiere_Ajuste": {
+      "main": [
+        [
+          {
+            "node": "Agente_Auditor_Precios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente_Auditor_Precios",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente_Auditor_Precios": {
+      "main": [
+        [
+          {
+            "node": "HTTP_Registrar_Auditoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_Registrar_Auditoria": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "HTTP_Actualizar_Producto_Precio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_Actualizar_Producto_Precio": {
+      "main": [
+        [
+          {
+            "node": "HTTP_Guardar_Nuevo_Historico",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar_politicas_empresa": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente_Auditor_Precios",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_Guardar_Nuevo_Historico": {
+      "main": [
+        [
+          {
+            "node": "Resumen_Cambios_Final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_API_FeriadosCR": {
+      "main": [
+        [
+          {
+            "node": "Merge_Mercado_Calendario",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge_Mercado_Calendario": {
+      "main": [
+        [
+          {
+            "node": "HTTP_JSON_Server_Historico",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "98a7c67d-f6d6-4e6f-a2f0-fd0ec5b24557",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ad1e005b9ad9a8d511a7b61177d33dfa90586827c0856d455d9192e2818d1921"
+  },
+  "nodeGroups": [],
+  "id": "qnLIuDTa0x6OSBzg",
+  "tags": []
+}
